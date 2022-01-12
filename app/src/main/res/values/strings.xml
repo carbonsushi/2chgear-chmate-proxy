@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">2chGear ChMate proxy</string>
+
+    <string name="about_description">Proxy to make 2chGear compatible with \"Write from external app\" in ChMate.</string>
+
+    <string name="activity_not_found_error">2chGearが見つかりません。</string>
+</resources>
