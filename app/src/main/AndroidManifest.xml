@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="io.github.carbonsushi.x2chgearchmateproxy">
 
     <application
         android:allowBackup="true"
-        android:fullBackupContent="@xml/backup_descriptor"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.2chGearChMateProxy">
+        android:theme="@style/Theme.2chGearChMateProxy"
+        tools:targetApi="31">
 
         <activity
             android:name=".MainActivity"
@@ -31,17 +34,18 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
 
+                <data android:scheme="https" />
+
                 <data android:host="*.5ch.net" />
                 <data android:host="*.bbspink.com" />
-                <data
-                    android:pathPattern="/test/read.cgi/.*/.*/"
-                    android:scheme="https" />
+                <data android:host="jbbs.shitaraba.net" />
+                <data android:host="machi.to" />
+                <data android:host="*.machi.to" />
+                <data android:host="*.2ch.sc" />
+
+                <data android:pathPrefix="/test/read.cgi/" />
+                <data android:pathPrefix="/bbs/read.cgi/" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name="com.mikepenz.aboutlibraries.ui.LibsActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
     </application>
-
 </manifest>
