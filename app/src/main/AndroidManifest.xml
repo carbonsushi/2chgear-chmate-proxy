@@ -15,7 +15,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".LicenseActivity"
             android:exported="true">
 
             <intent-filter>
@@ -34,17 +34,8 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
 
+                <data android:scheme="http" />
                 <data android:scheme="https" />
-
-                <data android:host="*.5ch.net" />
-                <data android:host="*.bbspink.com" />
-                <data android:host="jbbs.shitaraba.net" />
-                <data android:host="machi.to" />
-                <data android:host="*.machi.to" />
-                <data android:host="*.2ch.sc" />
-
-                <data android:pathPrefix="/test/read.cgi/" />
-                <data android:pathPrefix="/bbs/read.cgi/" />
             </intent-filter>
         </activity>
     </application>
