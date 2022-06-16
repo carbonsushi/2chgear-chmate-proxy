@@ -39,7 +39,7 @@ class ProxyActivity : AppCompatActivity() {
     private val activityResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (offOnWifi) {
-                wifiManager?.setWifiEnabled(true)
+                wifiManager?.isWifiEnabled = true
             }
             setResult(result.resultCode)
             finish()
@@ -64,7 +64,7 @@ class ProxyActivity : AppCompatActivity() {
         try {
             activityResult.launch(sendIntent)
             if (offOnWifi) {
-                wifiManager?.setWifiEnabled(false)
+                wifiManager?.isWifiEnabled = false
             }
         } catch (e: ActivityNotFoundException) {
             Toast.makeText(this, R.string.activity_not_found_error, Toast.LENGTH_LONG).show()
