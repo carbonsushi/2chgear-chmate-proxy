@@ -2,5 +2,10 @@
 <resources>
     <string name="app_name">2chGear ChMate Proxy</string>
 
+    <string name="off_on_wifi_title">2chGearで書き込む時にWi-Fiを無効化（書き込み後に有効化されます）</string>
+    <string name="use_2chgear_hostname_title">2chGearを使用する掲示板のホスト名（後方一致）</string>
+    <string name="license_title">License</string>
+
+    <string name="dont_call_except_chmate_error">ChMate以外から起動しないでください。</string>
     <string name="activity_not_found_error">2chGearが見つかりません。</string>
 </resources>

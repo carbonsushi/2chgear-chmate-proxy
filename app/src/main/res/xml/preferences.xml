@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SwitchPreferenceCompat
+        android:key="off_on_wifi"
+        android:title="@string/off_on_wifi_title" />
+
+    <EditTextPreference
+        android:defaultValue=".5ch.net\n.bbspink.com"
+        android:key="use_2chgear_hostname"
+        android:title="@string/use_2chgear_hostname_title"
+        app:useSimpleSummaryProvider="true" />
+
+    <Preference
+        android:key="license"
+        android:title="@string/license_title" />
+</PreferenceScreen>
