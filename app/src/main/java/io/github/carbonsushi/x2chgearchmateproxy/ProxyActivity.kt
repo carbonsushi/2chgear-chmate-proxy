@@ -23,22 +23,26 @@ class ProxyActivity : AppCompatActivity() {
     private val sharedPreferences by lazy { PreferenceManager.getDefaultSharedPreferences(this) }
     private val use2chGear by lazy {
         val use2chGearHostname = sharedPreferences
-            .getString("use_2chgear_hostname", ".5ch.net\n.bbspink.com")!!.split("\n")
-        intent.data?.pathSegments?.contains("read.cgi") == true && use2chGearHostname.any { hostname ->
+            .getString("use_2chgear_hostname", ".5ch.net\n.bbspink.com")?.split("\n")
+        intent.data?.pathSegments?.contains("read.cgi") == true && use2chGearHostname?.any { hostname ->
             intent.data?.host?.endsWith(hostname) == true
-        }
-    }
-    private val offOnWifi by lazy {
-        use2chGear && sharedPreferences.getBoolean(
-            "off_on_wifi",
-            false
-        )
+        } == true
     }
     private val wifiManager by lazy { getSystemService<WifiManager>() }
+    private val isOffWifi by lazy {
+        if (use2chGear
+            && sharedPreferences.getBoolean("off_on_wifi", false)
+            && wifiManager?.isWifiEnabled == true
+        ) {
+            wifiManager?.setWifiEnabled(false)
+        } else {
+            false
+        }
+    }
 
     private val activityResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (offOnWifi) {
+            if (isOffWifi == true) {
                 wifiManager?.isWifiEnabled = true
             }
             setResult(result.resultCode)
@@ -63,9 +67,7 @@ class ProxyActivity : AppCompatActivity() {
 
         try {
             activityResult.launch(sendIntent)
-            if (offOnWifi) {
-                wifiManager?.isWifiEnabled = false
-            }
+            isOffWifi
         } catch (e: ActivityNotFoundException) {
             Toast.makeText(this, R.string.activity_not_found_error, Toast.LENGTH_LONG).show()
             finish()
