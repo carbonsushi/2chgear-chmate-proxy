@@ -4,5 +4,5 @@
 
 ## 説明
 
-デフォルトでは*.5ch.net、*.bbspink.comのみ2chGearを使用するようになっています。  
-スレ立ては2chGear（Android 12？）の仕様上出来ないのでChMateのスレ立て画面が開きます。
+デフォルトでは*.5ch.net、*.bbspink.comのみ2chGearを使用します。  
+スレ立ては2chGear（Android 12）の仕様上不可能なのでChMateのスレ立て画面が開きます。
